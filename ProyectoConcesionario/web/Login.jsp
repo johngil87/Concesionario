@@ -14,10 +14,15 @@
         <link rel="stylesheet" type="text" href="EstilosGenerales.css">
     </head>
     <body>
-
+        <style type="text/css">
+            #user{
+                width: 500px;
+            }
+            
+        </style>
         <div class="containlogin">       
             <form action="Login" method="post" class="form-inline" >
-                <input class="form-control  " type="text" name="user" placeholder="Usuario" required=""/>  <br/><br/>
+                <input id="user" class="form-control  " type="text" name="user" placeholder="Usuario" required=""/>  <br/><br/>
                 <input class="form-control " type="password" name="pass" placeholder="Contraseña" required=""/><br/>
                 <input class="btn btn-primary navbar-btn" type="submit" value="Ingresar"/> 
             </form>
