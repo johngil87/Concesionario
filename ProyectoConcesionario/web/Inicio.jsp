@@ -4,6 +4,9 @@
     Author     : HP
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modelDAO.VehiculoDAO"%>
+<%@page import="model.Vehiculos"%>
 <%@page import="model.Persona"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,17 +22,10 @@
     </head>
     <body>
         <%Persona per = (Persona) session.getAttribute("user");
-
-            String idpersona = per.getDocumentoUser();
-
+            Vehiculos veh = new Vehiculos();
+            VehiculoDAO vehDao = new VehiculoDAO();
             String error = request.getParameter("error");
-            String admin = "";
-            if (per.getRolUsuario().equals("Administrador")) {
-                admin = "Hola admin "+per.getPrimerNombreUser();
-            }else{
-                admin = "Hola Cliente "+per.getPrimerNombreUser();
-            }
-
+            List<Vehiculos> listaVeh = vehDao.listar();
         %>
         <header>
             <div class="inner-width">
@@ -37,19 +33,35 @@
                 <i class="menu-toggle-btn fas fa-bars"></i>
                 <nav class="navigation-menu">
                     <a href="#"><i class="fas fa-home home"></i> Home</a>
-                    <a href="#"><i class="fas fa-align-left about"></i> About</a>
-                    <a href="#"><i class="fab fa-buffer works"></i> Works</a>
+                    <%                          if (per.getRolUsuario().equals("Administrador")) {
+                    %>                        
+                    <a href="#"><i class="fab fa-buffer works"></i> Catalogos</a>
+                    <a href="#"><i class="fas fa-users team"></i> Usuarios</a> 
+                    <% }%>
                     <a href="#"><i class="fas fa-users team"></i> Team</a>                    
                     <a href="Login.jsp"><i class="fas fa-headset contact"></i> <%= per.getUsuario()%></a>
                 </nav>
             </div>
         </header>
 
-                <h1><%= admin%></h1>
+        <article>
+            <%
+                for (int i = 0; i < listaVeh.size(); i++) {
+                    String urlImg = listaVeh.get(i).getFotoVehiculo();
+            %>
+            <div>
+                <hr>
+                <hr>
+                <h3>Marca <%= listaVeh.get(i).getMarcaVehiculo()%> </h3>
+                <h3>Linea <%= listaVeh.get(i).getLineaVehiculo()%> </h3>
+                <img src="<% out.print(listaVeh.get(i).getFotoVehiculo());%> " width="250" height="200" >
+                <h3>Placa <%= listaVeh.get(i).getPlacaVehiculo()%> </h3>
+                <h3>Color  <%= listaVeh.get(i).getColorVehiculo()%> </h3>
+                <h3>Modelo <%= listaVeh.get(i).getModeloVehiculo()%> </h3>
+            </div>
+            <% }%>
 
-
-
-
+        </article>
         <script type="text/javascript">
             $(".menu-toggle-btn").click(function () {
                 $(this).toggleClass("fa-times");
