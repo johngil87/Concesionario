@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
             Persona p = dao.loginPersona(user, pass);
 
             if (p.getUsuario() == null) {
-                 out.print("<p>Datos incorrectos</p>");
+                out.print("<p>Datos incorrectos</p>");
                 System.out.println("Datos Incorrectos");
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
                 

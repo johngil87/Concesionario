@@ -85,6 +85,7 @@ public class PersonaDAO implements ICRUD {
 
     @Override
     public Persona loginPersona(String user, String pass) {
+        String error = "";
         Persona per = new Persona();
         String sqlLogin = "select documento_usu, p_nombre_usu, s_nombre_usu, p_apellido_usu, s_apellido_usu,usuario,telefono, correo, fkpk_rol_usu from usuarios as u\n"
                 + " where  u.usuario='" + user + "' and u.contras='" + pass + "'";
@@ -92,13 +93,24 @@ public class PersonaDAO implements ICRUD {
             connection = con.getConnection();
             ps = connection.prepareStatement(sqlLogin);
             rs = ps.executeQuery();
-            while (rs.next()) {
+            if (rs.next()){
+                per.setPrimerNombreUser(rs.getString("p_nombre_usu"));
+                per.setSegundoNombreUser(rs.getString("s_nombre_usu"));
+                per.setPrimerApellidoUser(rs.getString("p_apellido_usu"));
+                per.setRolUsuario(rs.getString("fkpk_rol_usu"));
+                per.setUsuario(rs.getString("usuario")); 
+            }else{
+            
+            
+            }
+           /* while (rs.next()) {
                 per.setPrimerNombreUser(rs.getString("p_nombre_usu"));
                 per.setSegundoNombreUser(rs.getString("s_nombre_usu"));
                 per.setPrimerApellidoUser(rs.getString("p_apellido_usu"));
                 per.setRolUsuario(rs.getString("fkpk_rol_usu"));
                 per.setUsuario(rs.getString("usuario"));
             }
+            */
         } catch (Exception e) {
             System.out.println("error en login");
         }
