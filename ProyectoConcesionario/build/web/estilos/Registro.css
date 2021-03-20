@@ -1,0 +1,66 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+body{
+      background-image: url("../Imagenes/carretera.jpg");
+      background-repeat: no-repeat;
+}
+
+header{
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: auto;
+    font-family: 'Pacifico', cursive;
+    
+}
+
+main{
+    width:1300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(100px);
+    text-align:  center;
+    font-family: 'Balsamiq Sans', cursive;
+   
+   
+}
+
+
+
+footer{
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0px;
+}
+
+h1{
+    color: white;
+}
+
+.caj{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: lightblue;
+    
+}
+
+.caj:focus{
+  outline: 0px;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

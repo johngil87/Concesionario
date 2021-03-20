@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+body{
+      background-image: url("../Imagenes/carro.gif");
+}
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: auto;
+    font-family: 'Pacifico', cursive;
+    
+}
+
+main{
+    width: 400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(100px);
+    text-align:  center;
+    font-family: 'Balsamiq Sans', cursive;
+   
+}
+form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+footer{
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0px;
+}
+
+h1{
+    color: white;
+}
+
+.inp{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    
+}
+
+.inp:focus{
+  outline: 0px;
+
+}
+
+
+
