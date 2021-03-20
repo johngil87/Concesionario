@@ -37,17 +37,16 @@ public class Login extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String user = request.getParameter("user");
             String pass = request.getParameter("pass");
-            String error = "Datos incorrectos";
+            String error = "";
             PersonaDAO dao = new PersonaDAO();
             System.out.println("entra al servlet");
 
             Persona p = dao.loginPersona(user, pass);
 
             if (p.getUsuario() == null) {
-                out.print("<p>Datos incorrectos</p>");
-                System.out.println("Datos Incorrectos");
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
-                
+                error = "Datos Incorrectos";
+                request.setAttribute("respuesta", error);
+                request.getRequestDispatcher("Respuesta.jsp").forward(request, response);
 
             } else {
                 HttpSession nuevasesion = request.getSession();

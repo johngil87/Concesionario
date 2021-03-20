@@ -26,7 +26,7 @@ public class Registro extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-   
+
         }
     }
 
@@ -56,22 +56,34 @@ public class Registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Persona per = new Persona();
-            PersonaDAO perDao = new PersonaDAO();
-            per.setDocumentoUser(request.getParameter("documento"));
-            per.setPrimerNombreUser(request.getParameter("pnombre"));
-            per.setSegundoNombreUser(request.getParameter("snombre"));
-            per.setPrimerApellidoUser(request.getParameter("papellido"));
-            per.setSegundoApellidoUser(request.getParameter("sapellido"));
-            per.setTipoDocumento(request.getParameter("tipoDocumento"));
-            per.setTelefono(Long.parseLong(request.getParameter("cell")));
-            per.setCorreo(request.getParameter("email"));
-            per.setUsuario(request.getParameter("usuario"));
-            per.setContraseña(request.getParameter("pass"));
-            perDao.registroPersona(per);
-
-            out.print("<p>registro exitoso</p>");
-            request.getRequestDispatcher("Login.jsp").include(request, response);
+        Persona per = new Persona();
+        PersonaDAO perDao = new PersonaDAO();
+        String user = request.getParameter("usuario");
+        String documento = request.getParameter("documento");
+        String tipo = request.getParameter("tipoDocumento");
+        String resultado = "";
+        
+        if(perDao.validarRegistro(user, documento, tipo)){
+        resultado="El usuario ya existe";
+        request.setAttribute("respuesta",resultado);
+        request.getRequestDispatcher("Respuesta.jsp").include(request, response);
+            
+        }else{
+         per.setDocumentoUser(request.getParameter("documento"));
+        per.setPrimerNombreUser(request.getParameter("pnombre"));
+        per.setSegundoNombreUser(request.getParameter("snombre"));
+        per.setPrimerApellidoUser(request.getParameter("papellido"));
+        per.setSegundoApellidoUser(request.getParameter("sapellido"));
+        per.setTipoDocumento(request.getParameter("tipoDocumento"));
+        per.setTelefono(Long.parseLong(request.getParameter("cell")));
+        per.setCorreo(request.getParameter("email"));
+        per.setUsuario(request.getParameter("usuario"));
+        per.setContraseña(request.getParameter("pass"));
+        perDao.registroPersona(per);
+        resultado="Registro satisfactorio";
+        request.setAttribute("respuesta",resultado);
+        request.getRequestDispatcher("Respuesta.jsp").include(request, response);
+        }
     }
 
     /**

@@ -35,8 +35,8 @@
                     <a href="#"><i class="fas fa-home home"></i> Home</a>
                     <%                          if (per.getRolUsuario().equals("Administrador")) {
                     %>                        
-                    <a href="#"><i class="fab fa-buffer works"></i> Catalogos</a>
-                    <a href="#"><i class="fas fa-users team"></i> Usuarios</a> 
+                    <a href="catalogos.jsp"><i class="fab fa-buffer works"></i> Catalogos</a>
+                    <a href="usuarios.jsp"><i class="fas fa-users team"></i> Usuarios</a> 
                     <% }%>
                     <a href="#"><i class="fas fa-users team"></i> Team</a>                    
                     <a href="Login.jsp"><i class="fas fa-headset contact"></i> <%= per.getUsuario()%></a>

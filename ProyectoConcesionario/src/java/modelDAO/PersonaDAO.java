@@ -116,5 +116,23 @@ public class PersonaDAO implements ICRUD {
         }
         return per;
     }
+    
+    public Boolean validarRegistro(String user, String documento, String tipoDocumento){
+        String sqlValLogin= "select * from usuarios where usuario = "+user+" or (documento_usu="+documento+" and  fkpk_t_documento="+tipoDocumento+")";
+        Boolean validacion = true; 
+        try {
+            connection = con.getConnection();
+            ps = connection.prepareStatement(sqlValLogin);
+            rs = ps.executeQuery();
+            if(rs.next()){
+             validacion = false;
+            }else{
+             validacion = true;   
+            }
+         }catch(Exception ex){
+             System.out.println(ex);
+         }
+        return validacion;
+    }
 
 }
