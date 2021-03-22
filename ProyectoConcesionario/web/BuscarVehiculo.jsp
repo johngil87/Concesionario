@@ -52,7 +52,7 @@
     </header>
     <main>
         
-            <div>
+        <div class="conten">
                 <% if(veh.getMarcaVehiculo()==null){ %>
                  <h3>Vehiculo de placa <%=placa%> no existe en la base de datos </h3>
                  <% }else{ %>

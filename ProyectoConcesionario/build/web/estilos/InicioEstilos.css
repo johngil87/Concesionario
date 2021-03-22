@@ -5,7 +5,7 @@
 }
 
 main{
-    width:1150px;
+    width:90%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -14,3 +14,28 @@ main{
     
 }
 
+.contenmain{
+    float: left;
+    width: 25%;
+}
+
+@media screen and (max-width:1200px){
+    .contenmain{
+        width: 33.3%;
+    }
+    
+}
+
+@media screen and (max-width:850px){
+    .contenmain{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width:600px){
+    .contenmain{
+        width: 100%;
+    }
+    
+}

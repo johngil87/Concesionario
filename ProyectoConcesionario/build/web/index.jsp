@@ -44,17 +44,15 @@
             </div>
         </header>
         <main>
-            <table>
+           
                 <%
                 for (int i = 0; i < listaVeh.size(); i++) {
                     String urlImg = listaVeh.get(i).getFotoVehiculo();
                     
-                if (fila%5==0){
+
             %>
-                 <tr>
-               
-            <td>
-                <div class="card" style="width: 18rem;">
+                
+                <div class=" card contenmain" >
                 <img src="<% out.print(listaVeh.get(i).getFotoVehiculo());%>" class="card-img-top" alt="..." width="250" height="200">
                 <div class="card-body">
                   <h5 class="card-title"><%= listaVeh.get(i).getMarcaVehiculo()%> <%= listaVeh.get(i).getLineaVehiculo()%> </h5>
@@ -65,30 +63,15 @@
                 </div>
             </div>
            
-            </td>
-             
-                     </tr>
-               <%}else{ %>
-               
-                <td>
-                <div class="card" style="width: 18rem;">
-                <img src="<% out.print(listaVeh.get(i).getFotoVehiculo());%>" class="card-img-top" alt="..."width="250" height="200">
-                <div class="card-body">
-                  <h5 class="card-title"><%= listaVeh.get(i).getMarcaVehiculo()%> <%= listaVeh.get(i).getLineaVehiculo()%> </h5>
-                  <p class="card-text">Placa: <%= listaVeh.get(i).getPlacaVehiculo()%> </p>
-                  <p class="card-text">Color: <%= listaVeh.get(i).getColorVehiculo()%></p>
-                  <p class="card-text">Modelo: <%= listaVeh.get(i).getModeloVehiculo()%> </p>
-                 
-                </div>
-            </div>
            
-            </td>
-               <%}%>
+             
+                 
+               
                
                 
             <% fila++; }%>
             
-            </table>
+            
              
         </main>
             
