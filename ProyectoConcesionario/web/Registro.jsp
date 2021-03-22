@@ -31,7 +31,10 @@
 
         %>
 
-        <header><h1>Concesionario</h1></header>
+        <header>
+            <a href="index.jsp"><h1>Concesionario</h1></a>
+            
+        </header>
         <main>
             <section>
                 <h1>Registro</h1>

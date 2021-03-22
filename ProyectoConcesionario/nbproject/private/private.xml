@@ -3,16 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/model/Sucursales.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/web/Login.jsp</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/modelDAO/PersonaDAO.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/model/Vehiculos.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/modelDAO/VehiculoDAO.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/web/Inicio.jsp</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/interfaces/ICRUD.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/web/estilos/estilosCatalogos.css</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/src/java/interfaces/CRUDVehiculo.java</file>
-            <file>file:/C:/Users/HP/Desktop/proyecto2/Concesionario/ProyectoConcesionario/web/Catalogos.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/Registro.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/Inicio.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/Login.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/estilos/Registro.css</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/estilos/RegistroVehiculos.css</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/RegistroVehiculo.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/index.jsp</file>
+            <file>file:/C:/Users/carlo/OneDrive/Escritorio/ProyectoConcesionario/Concesionario/ProyectoConcesionario/web/estilos/login.css</file>
         </group>
     </open-files>
 </project-private>

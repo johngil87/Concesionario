@@ -3,11 +3,12 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelDAO.VehiculoDAO;
 import java.util.List;
+import modelDAO.VehiculoDAO;
 import model.Vehiculos;
+import model.Persona;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -50,9 +51,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>JSP Page</title>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"estilos/EstilosGenerales.css\">\r\n");
       out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js\" charset=\"utf-8\"></script>\r\n");
@@ -61,23 +65,36 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        ");
-
+Persona per = (Persona) session.getAttribute("user");
             Vehiculos veh = new Vehiculos();
             VehiculoDAO vehDao = new VehiculoDAO();
+            String error = request.getParameter("error");
             List<Vehiculos> listaVeh = vehDao.listar();
         
       out.write("\r\n");
       out.write("        <header>\r\n");
       out.write("            <div class=\"inner-width\">\r\n");
-      out.write("                <a href=\"#\" class=\"logo\"><img src=\"logo.png\" alt=\"\"></a>\r\n");
+      out.write("                <a href=\"#\" class=\"logo\"><img src=\"\" alt=\"\"></a>\r\n");
       out.write("                <i class=\"menu-toggle-btn fas fa-bars\"></i>\r\n");
       out.write("                <nav class=\"navigation-menu\">\r\n");
       out.write("                    <a href=\"#\"><i class=\"fas fa-home home\"></i> Home</a>\r\n");
-      out.write("                    <a href=\"#\"><i class=\"fas fa-users team\"></i> Team</a>\r\n");
-      out.write("                    <a href=\"Login.jsp\"><i class=\"fas fa-headset contact\"></i> Login</a>\r\n");
+      out.write("                    ");
+                          if (per.getRolUsuario().equals("Administrador")) {
+                    
+      out.write("                        \r\n");
+      out.write("                    <a href=\"catalogos.jsp\"><i class=\"fab fa-buffer works\"></i> Catalogos</a>\r\n");
+      out.write("                    <a href=\"usuarios.jsp\"><i class=\"fas fa-users team\"></i> Usuarios</a> \r\n");
+      out.write("                    ");
+ }
+      out.write("\r\n");
+      out.write("                    <a href=\"#\"><i class=\"fas fa-users team\"></i> Team</a>                    \r\n");
+      out.write("                    <a href=\"Login.jsp\"><i class=\"fas fa-headset contact\"></i> ");
+      out.print( per.getUsuario());
+      out.write("</a>\r\n");
       out.write("                </nav>\r\n");
       out.write("            </div>\r\n");
       out.write("        </header>\r\n");
+      out.write("\r\n");
       out.write("        <article>\r\n");
       out.write("            ");
 
@@ -112,8 +129,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("        </article>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("        <script type=\"text/javascript\">\r\n");
       out.write("            $(\".menu-toggle-btn\").click(function () {\r\n");
       out.write("                $(this).toggleClass(\"fa-times\");\r\n");

@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+main{
+    width:1300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(40px);
+    text-align:  center;
+    
+}
+
+h1:hover{
+    color: #FDD618;
+}
+
+.caj{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: lightblue;
+    
+}
+
+.caj:focus{
+  outline: 0px;
+
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

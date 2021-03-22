@@ -13,10 +13,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" href="estilos/EstilosGenerales.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <link rel="stylesheet" href="estilos/RegistroVehiculos.css">
+        <link rel="stylesheet" href="estilos/EstilosGenerales.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        
+        <title>Registro Vehiculo</title>
     </head>
     <body>
         <%
@@ -41,26 +50,33 @@
                 </nav>
             </div>
         </header>
-        <br><br>
-        <form action="Registro1" method="post">
-            <input type="text" name="placa" placeholder="Placa del Vehiculo" maxlength="6" class="caj" required=""><br><br>
-            <input type="text" name="marca" placeholder="Marca del Vehiculo" class="caj" required=""><br><br>
-            <input type="text" name="linea" placeholder="Linea  Del Veiculo"  class="caj" required=""><br><br>
-            <input type="number" name="modelo" placeholder="Modelo" maxlength="4" class="caj" required=""><br><br>
-            <input type="text" name="color" placeholder="Color" class="caj" required=""><br><br>
-            <input type="file" name="foto" placeholder="Foto Vehiculo" class="caj" required=""><br><br>
-            <select name="estado"  id="tip" class="caj" >
-                <option value="1">Para la venta</option>
-                <option value="0">Vendido</option>
-            </select><br><br>
-            <select name="codigoSucursal"  id="tip" class="caj" >
-
-                <% for (int i = 0; i < sucur.size(); i++) {%>
-                <option value="<%= sucur.get(i).getCodSucursal()%>"> <%= sucur.get(i).getNomSucursal()%> </option>
-                <% }%>
-            </select><br><br>
-            <input type="submit" name="" class="btn btn-success caj" value="Crear"><br><br>
-        </form> 
+                
+        <main>
+            <h1>Ingresar Vehiculos</h1> <br>
+            <form action="Registro1" method="post">
+                
+               <input type="text" name="placa" placeholder="Placa del Vehiculo" maxlength="6" class="caj" required=""><br><br>
+               <input type="text" name="marca" placeholder="Marca del Vehiculo"maxlength="15" class="caj" required=""><br><br>
+               <input type="text" name="linea" placeholder="Linea  Del Veiculo"  maxlength="15" class="caj" required=""><br><br>
+               <input type="number" name="modelo" placeholder="Modelo" maxlength="4" class="caj" required=""><br><br>
+               <input type="text" name="color" placeholder="Color" maxlength="15"class="caj" required=""><br><br>
+               <input type="file" name="foto" placeholder="Foto Vehiculo" class="caj" required=""><br><br>
+               
+               <select name="estado"  id="tip" class="caj" >
+                   <option value="1">A la venta</option>
+                   <option value="0">Vendido</option>
+               </select><br><br>
+               
+               <select name="codigoSucursal"  id="tip" class="caj" >
+                   <% for (int i = 0; i < sucur.size(); i++) {%>
+                   <option value="<%= sucur.get(i).getCodSucursal()%>"> <%= sucur.get(i).getNomSucursal()%> </option>
+                   <% }%>
+               </select><br><br>
+                
+               <input type="submit" name="" class="btn btn-dark caj" value="Crear"><br><br>
+           </form>       
+        </main>
+         
 
         <%
             String respuesta = request.getCharacterEncoding();
@@ -68,6 +84,9 @@
                 out.print(respuesta);
             }
         %>
+        
+        <footer></footer>
+        
         <script type="text/javascript">
             $(".menu-toggle-btn").click(function () {
                 $(this).toggleClass("fa-times");
