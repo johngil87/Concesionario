@@ -25,6 +25,12 @@
         VehiculoDAO vehDao= new VehiculoDAO(); 
         String placa = request.getAttribute("respuesta").toString();
         Vehiculos veh = vehDao.listarVehiculoId(placa);
+        String estado ="";
+        if(veh.getEstadoVehiculo()==1){
+            estado="A la venta";
+        }else{
+           estado="Vendido";
+        }
 
     %>
     <header>
@@ -32,7 +38,7 @@
             <a href="#" class="logo"><img src="logo.png" alt=""></a>
             <i class="menu-toggle-btn fas fa-bars"></i>
             <nav class="navigation-menu">
-                <a href="#"><i class="fas fa-home home"></i> Home</a>
+                <a href="Inicio.jsp"><i class="fas fa-home home"></i> Home</a>
                 <%                          if (per.getRolUsuario().equals("Administrador")) {
                 %>                        
                 <a href="Catalogos.jsp"><i class="fab fa-buffer works"></i> Catalogos</a>
@@ -57,6 +63,7 @@
                 <h3>Placa <%= veh.getPlacaVehiculo()%> </h3>
                 <h3>Color  <%= veh.getColorVehiculo()%> </h3>
                 <h3>Modelo <%= veh.getModeloVehiculo()%> </h3>
+                <h3>Estado <%= estado %> </h3>
                 <% } %>
             </div>
            

@@ -30,10 +30,10 @@
                 <a href="#" class="logo"><img src="logo.png" alt=""></a>
                 <i class="menu-toggle-btn fas fa-bars"></i>
                 <nav class="navigation-menu">
-                    <a href="#"><i class="fas fa-home home"></i> Home</a>
+                    <a href="Inicio.jsp"><i class="fas fa-home home"></i> Home</a>
                     <%                          if (per.getRolUsuario().equals("Administrador")) {
                     %>                        
-                    <a href="catalogos.jsp"><i class="fab fa-buffer works"></i> Catalogos</a>
+                    <a href="Catalogos.jsp"><i class="fab fa-buffer works"></i> Catalogos</a>
                     <a href="usuarios.jsp"><i class="fas fa-users team"></i> Usuarios</a> 
                     <% }%>
                     <a href="#"><i class="fas fa-users team"></i> Team</a>                    

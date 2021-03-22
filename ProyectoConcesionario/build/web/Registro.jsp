@@ -52,7 +52,7 @@
                     <input type="text" name="papellido" placeholder="Primer Apellido" maxlength="15" class="caj" required="">      
                     <input type="text" name="sapellido" placeholder="Segundo Apellido"  maxlength="15" class="caj" > <br><br>
 
-                    <input type="number" name="cell" placeholder="Telefono" max="999999999999999" class="caj" >
+                    <input type="number" name="cell" placeholder="Telefono" maxlength="10" class="caj" >
                     <input type="email" name="email" placeholder="Correo" class="caj" > <br><br>
 
                     <input type="text" name="usuario" placeholder="Usuario" maxlength="20" class="caj" required="">
