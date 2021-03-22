@@ -5,28 +5,62 @@
  */
 package controller;
 
-import com.sun.javafx.application.ParametersImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Persona;
-import modelDAO.PersonaDAO;
+import model.Vehiculos;
+import modelDAO.VehiculoDAO;
 
 /**
  *
  * @author HP
  */
-public class Registro extends HttpServlet {
+@WebServlet(name = "Registro1", urlPatterns = {"/Registro1"})
+public class Registro1 extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+               Vehiculos veh = new Vehiculos();
+        VehiculoDAO vehDao = new VehiculoDAO();
+        String placa = request.getParameter("placa");
+        veh = vehDao.listarVehiculoId(placa);
+        String resultado = "";
+        String foto = "Imagenes/" + request.getParameter("foto");
 
+        if (veh.getPlacaVehiculo()==null) {
+            veh.setPlacaVehiculo(request.getParameter("placa"));
+            veh.setMarcaVehiculo(request.getParameter("marca"));
+            veh.setLineaVehiculo(request.getParameter("linea"));
+            veh.setModeloVehiculo(Integer.parseInt(request.getParameter("modelo")));
+            veh.setFotoVehiculo(foto);
+            veh.setEstadoVehiculo(Integer.parseInt(request.getParameter("estado")));
+            veh.setColorVehiculo(request.getParameter("color"));
+            veh.setCodSucursal(request.getParameter("codigoSucursal"));
+            vehDao.registro(veh);
+            resultado = "Registro satisfactorio";
+            request.setAttribute("respuestaV", resultado);
+            request.getRequestDispatcher("RespuestaVehiculo.jsp").forward(request, response);
+        } else {
+            resultado = "El Vehiculo con esta placa ya existe";
+            request.setAttribute("respuestaV", resultado);
+            request.getRequestDispatcher("RespuestaVehiculo.jsp").forward(request, response);
+
+        }
         }
     }
 
@@ -42,7 +76,7 @@ public class Registro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      
     }
 
     /**
@@ -56,34 +90,9 @@ public class Registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona per = new Persona();
-        PersonaDAO perDao = new PersonaDAO();
-        String user = request.getParameter("usuario");
-        String documento = request.getParameter("documento");
-        String tipo = request.getParameter("tipoDocumento");
-        String resultado = "";
+        processRequest(request, response);
+   
         
-        if(!perDao.validarRegistro(user, documento, tipo)){
-        resultado="El usuario ya existe";
-        request.setAttribute("respuesta",resultado);
-        request.getRequestDispatcher("Respuesta.jsp").include(request, response);
-            
-        }else{
-         per.setDocumentoUser(request.getParameter("documento"));
-        per.setPrimerNombreUser(request.getParameter("pnombre"));
-        per.setSegundoNombreUser(request.getParameter("snombre"));
-        per.setPrimerApellidoUser(request.getParameter("papellido"));
-        per.setSegundoApellidoUser(request.getParameter("sapellido"));
-        per.setTipoDocumento(request.getParameter("tipoDocumento"));
-        per.setTelefono(Long.parseLong(request.getParameter("cell")));
-        per.setCorreo(request.getParameter("email"));
-        per.setUsuario(request.getParameter("usuario"));
-        per.setContraseña(request.getParameter("pass"));
-        perDao.registroPersona(per);
-        resultado="Registro satisfactorio";
-        request.setAttribute("respuesta",resultado);
-        request.getRequestDispatcher("Respuesta.jsp").include(request, response);
-        }
     }
 
     /**

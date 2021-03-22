@@ -16,7 +16,7 @@ public interface CRUDVehiculo {
     
     public List<Vehiculos> listar();
 
-    public Vehiculos listarVehiculoId(int id);
+    public Vehiculos listarVehiculoId(String placa);
 
     public Boolean registro(Vehiculos vehiculo);
 
@@ -24,7 +24,7 @@ public interface CRUDVehiculo {
 
     public Boolean eliminar(Vehiculos vehiculo);
     
-    public Vehiculos loginPersona(String user, String pass);
+    public Boolean validarVehiculo(String user);
     
     public List listarVehiculoMarca(String marca);
 }

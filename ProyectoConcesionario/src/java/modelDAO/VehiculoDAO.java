@@ -54,13 +54,45 @@ public class VehiculoDAO implements CRUDVehiculo{
     }
 
     @Override
-    public Vehiculos listarVehiculoId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Vehiculos listarVehiculoId(String placa) {
+      String sql = "select * from vehiculos where placa_vehiculo ='"+placa+"'";
+         Vehiculos veh = new Vehiculos();
+        try {
+            connection = con.getConnection();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                veh.setPlacaVehiculo(rs.getString("placa_vehiculo"));
+                veh.setMarcaVehiculo(rs.getString("marca_vehiculo"));
+                veh.setLineaVehiculo(rs.getString("linea_vehiculo"));
+                veh.setModeloVehiculo(rs.getInt("modelo_vehiculo"));
+                veh.setColorVehiculo(rs.getString("color_vehiculo"));
+                veh.setFotoVehiculo(rs.getString("imagen_vehiculo"));
+                veh.setEstadoVehiculo(rs.getInt("estado_vehiculo"));
+            }
+
+        } catch (Exception e) {
+            System.out.println("error al capturar datos de vehiculos ");
+            System.err.println(e.toString());
+        }
+        return veh;   
     }
 
     @Override
     public Boolean registro(Vehiculos vehiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           String sql = " INSERT INTO vehiculos (placa_vehiculo, marca_vehiculo, linea_vehiculo, modelo_vehiculo, color_vehiculo,imagen_vehiculo, estado_vehiculo, fk_cod_sucursal) \n"
+                + "VALUES ('" + vehiculo.getPlacaVehiculo() + "', '" + vehiculo.getMarcaVehiculo() + "', '" + vehiculo.getLineaVehiculo() + "', " + vehiculo.getModeloVehiculo() + ", '" + vehiculo.getColorVehiculo() + "', '" + vehiculo.getFotoVehiculo() + "'," + vehiculo.getEstadoVehiculo() + ", '" + vehiculo.getCodSucursal() + "')";
+        try {
+            connection = con.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.executeUpdate();
+            System.out.println("se registro vehiculo");
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error em registor del vehiculo");
+            System.out.println(e);
+            return false;
+        }
     }
 
     @Override
@@ -71,16 +103,36 @@ public class VehiculoDAO implements CRUDVehiculo{
     @Override
     public Boolean eliminar(Vehiculos vehiculo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Vehiculos loginPersona(String user, String pass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }    
 
     @Override
     public List listarVehiculoMarca(String marca) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean validarVehiculo(String placa) {
+    String sql = "select * from vehiculos where placa_vehiculo ="+placa;
+         Vehiculos veh = new Vehiculos();
+        try {
+            connection = con.getConnection();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                veh.setPlacaVehiculo(rs.getString("placa_vehiculo"));
+                veh.setMarcaVehiculo(rs.getString("marca_vehiculo"));
+                veh.setLineaVehiculo(rs.getString("linea_vehiculo"));
+                veh.setModeloVehiculo(rs.getInt("modelo_vehiculo"));
+                veh.setColorVehiculo(rs.getString("color_vehiculo"));
+                veh.setFotoVehiculo(rs.getString("imagen_vehiculo"));
+                veh.setEstadoVehiculo(rs.getInt("estado_vehiculo"));
+            }
+
+        } catch (Exception e) {
+            System.out.println("error al capturar datos de vehiculos ");
+            System.err.println(e.toString());
+        }
+       return true;
     }
     
 }
