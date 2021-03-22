@@ -65,7 +65,7 @@
                    
                
             
-                <div class="contenmain" >
+                <div class=" card contenmain" >
                 <img src="<% out.print(listaVeh.get(i).getFotoVehiculo());%>" class="card-img-top" alt="..." width="250" height="200">
                 <div class="card-body">
                   <h5 class="card-title"><%= listaVeh.get(i).getMarcaVehiculo()%> <%= listaVeh.get(i).getLineaVehiculo()%> </h5>
