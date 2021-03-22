@@ -15,6 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>VehiculoPlaca</title>
         <link rel="stylesheet" href="estilos/EstilosGenerales.css">
+        <link rel="stylesheet" href="estilos/BuscarVehiculo.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     </head>
@@ -49,25 +50,25 @@
             </nav>
         </div>
     </header>
-             <article>
-          
+    <main>
+        
             <div>
                 <% if(veh.getMarcaVehiculo()==null){ %>
                  <h3>Vehiculo de placa <%=placa%> no existe en la base de datos </h3>
                  <% }else{ %>
+               
                 <hr>
+                <h1><%= veh.getMarcaVehiculo()%> <%= veh.getLineaVehiculo()%> </h1> 
                 <hr>
-                <h3>Marca <%= veh.getMarcaVehiculo()%> </h3>
-                <h3>Linea <%= veh.getLineaVehiculo()%> </h3>
-                <img src="<% out.print(veh.getFotoVehiculo());%> " width="250" height="200" >
+                <img src="<% out.print(veh.getFotoVehiculo());%> " width="500" height="400" >
                 <h3>Placa <%= veh.getPlacaVehiculo()%> </h3>
                 <h3>Color  <%= veh.getColorVehiculo()%> </h3>
                 <h3>Modelo <%= veh.getModeloVehiculo()%> </h3>
-                <h3>Estado <%= estado %> </h3>
+                <h3>Estado <%= estado %> </h3><br>
                 <% } %>
             </div>
-           
-
-        </article>
+              
+    </main>
+            
 </body>
 </html>

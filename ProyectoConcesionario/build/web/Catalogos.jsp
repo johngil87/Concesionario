@@ -14,13 +14,15 @@
         <title>Productos</title>
         <link rel="stylesheet" href="estilos/estilosCatalogos.css">
         <link rel="stylesheet" href="estilos/EstilosGenerales.css"
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
     </head>
     <body>
         <%Persona per = (Persona) session.getAttribute("user");
@@ -98,7 +100,7 @@
                             <label for="id" class="form-control col-md-6">Placa del Vehiculo</label>
                             <input type="text" class="form-control col-md-6" id="id" placeholder="Placa" name="placa" required="" maxlength="6">
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Ver informacion</button>
+                        <button type="submit" class="boton">Ver informacion</button>
                     </form>    
                 </div>
             </div>

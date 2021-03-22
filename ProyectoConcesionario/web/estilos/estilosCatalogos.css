@@ -33,7 +33,7 @@ body{
 .service{
   display: inline-block;
   width: calc(100% / 3);
-  height: 600 px;
+  height: auto;
   margin: 0 -2px;
   padding: 20px;
   box-sizing: border-box;
@@ -58,6 +58,15 @@ body{
   color: gray;
   font-size: 15px;
   font-weight: 500;
+}
+
+.boton{
+    background-color: #4D68C8;
+    color:white;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
 }
 @media screen and (max-width: 800px) {
   .service{
